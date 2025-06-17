@@ -1,10 +1,12 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import CartModal from "./CartModal";
+import { CartContext } from "../store/shopping-cart-context";
 
 function Header({ cart, onUpdateCartItemQuantity }) {
     const modal = useRef();
+    const { items } = useContext(CartContext);
 
-    const cartQuantity = cart.items.length;
+    const cartQuantity = items.length;
 
     function handleOpenCartClick() {
         modal.current.open();
@@ -25,14 +27,12 @@ function Header({ cart, onUpdateCartItemQuantity }) {
         <>
             <CartModal
                 ref={modal}
-                cartItems={cart.items}
-                onUpdateCartItemQuantity={onUpdateCartItemQuantity}
                 title='Your Cart'
                 actions={modalActions}
             />
 
             <header id="main-header">
-                <div id="main-title">
+                <div id="main-title"> 
                     <img src="logo.png" alt="Elegant modal" />
                     <h1>Elegant Context</h1>
                 </div>

@@ -9,7 +9,7 @@ import Product from "./components/Product";
 function App() {
     const [shoppingCart, setShoppingCart] = useState({
         items: [],
-    });
+    }); ``
 
     function handleAddItemToCart(id) {
         setShoppingCart((prevShoppingCart) => {
@@ -71,16 +71,14 @@ function App() {
     const ctxValue = {
         items: shoppingCart.items,
         addItemToCart: handleAddItemToCart,
+        updateItemQuantity: handleUpdateCartItemQuantity,
     };
 
     return (
         <CartContext.Provider value={ctxValue}>
-            <Header 
-                cart={shoppingCart}
-                onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
-            />
+            <Header />
 
-            <Shop onAddItemToCart={handleAddItemToCart}>
+            <Shop>
                 {DUMMY_PRODUCTS.map((product) => (
                     <li key={product.id}>
                         <Product 

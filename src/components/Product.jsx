@@ -4,7 +4,7 @@ import { CartContext } from "../store/shopping-cart-context";
 function Product({
     id,
     image,
-    title,
+    title, 
     price,
     description,
 }) {
