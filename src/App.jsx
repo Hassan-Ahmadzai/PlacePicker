@@ -17,6 +17,7 @@ function App() {
         modal.current.close();
     };
 
+
     function handleSelectPlace(id) {
         setPickedPlaces((prevPickedPlaces) => {
             if (prevPickedPlaces.some((place) => place.id === id)) {
@@ -32,7 +33,7 @@ function App() {
             prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
         );
         modal.current.close();
-    };
+    };  
 
 
     return (
