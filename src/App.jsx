@@ -1,29 +1,49 @@
-import React, { useState } from "react";
-import Header from "./components/Header";
-import Shop from "./components/Shop";
-import { DUMMY_PRODUCTS } from "./dummy-products";
-import { CartContext } from './store/shopping-cart-context';
-import Product from "./components/Product";
-import CartContextProvider from "./store/shopping-cart-context";
+import React, { useRef, useState } from "react";
+import Modal from "./components/Modal";
+import DeleteConfirmation from "./components/DeleteConfirmation";
+import { AVAILABLE_PLACES } from "./data";
   
-
 function App() {
+    const modal = useRef();
+    const selectedPlace = useRef();
+    const [pickedPlaces, setPickedPlaces] = useState([]);
+
+    function handleStartRemovePlace(id) {
+        modal.current.open();
+        selectedPlace.current = id;
+    };
+
+    function handleStopRemovePlace() {
+        modal.current.close();
+    };
+
+    function handleSelectPlace(id) {
+        setPickedPlaces((prevPickedPlaces) => {
+            if (prevPickedPlaces.some((place) => place.id === id)) {
+                return prevPickedPlaces;
+            };
+            const place = AVAILABLE_PLACES.find((place) => place.id === id);
+            return [place, ...prevPickedPlaces];
+        });
+    };
+
+    function handleRemovePlace() {
+        setPickedPlaces((prevPickedPlaces) => 
+            prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
+        );
+        modal.current.close();
+    };
 
 
     return (
-        <CartContextProvider>
-            <Header />
-
-            <Shop>
-                {DUMMY_PRODUCTS.map((product) => (
-                    <li key={product.id}>
-                        <Product 
-                            {...product}
-                        />
-                    </li>   
-                ))}
-            </Shop>
-        </CartContextProvider>
+        <>
+            <Modal ref={modal}>
+                <DeleteConfirmation 
+                    onCancel={handleStopRemovePlace}
+                    onConfirm={handleRemovePlace}
+                />
+            </Modal>
+        </>
     );
 };
 
