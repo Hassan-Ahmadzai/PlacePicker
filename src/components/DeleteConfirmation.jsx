@@ -1,3 +1,4 @@
+ 
 export default function DeleteConfirmation({ onConfirm, onCancel }) {
     return (
         <div id="delete-confirmation">
