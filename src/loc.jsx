@@ -6,7 +6,7 @@ function toRad(value) {
 function calculateDistance(lat1, lng1, lat2, lng2) {
     const R = 6371;
     const dLat = toRad(lat2 - lat1);
-    const dLon = toRad(lng2 - lng1);
+    const dLon = toRad(lng2 - lng1); 
     const l1 = toRad(lat1);
     const l2 = toRad(lat2);
 

@@ -16,7 +16,7 @@ import africanSavannaImg from './assets/african-savanna.jpg';
 import victoriaFallsImg from './assets/victoria-falls.jpg';
 import machuPicchuImg from './assets/machu-picchu.jpg';
 import amazonRiverImg from './assets/amazon-river.jpg';
-
+  
 
 export const AVAILABLE_PLACES = [
   {
