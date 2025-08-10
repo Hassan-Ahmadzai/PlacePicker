@@ -24,4 +24,4 @@ const Modal = forwardRef(function Modal({ children }, ref) {
     );
 });
 
-export default Modal;
+export default Modal;   
