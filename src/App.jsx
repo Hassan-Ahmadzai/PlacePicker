@@ -67,7 +67,7 @@ function App() {
                 <Places
                     title="Available Places"
                     places={AVAILABLE_PLACES}
-                    onS electPlace={handleSelectPlace}
+                    onSelectPlace={handleSelectPlace}
                 />
             </main>
         </>
