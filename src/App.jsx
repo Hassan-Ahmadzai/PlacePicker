@@ -55,6 +55,7 @@ function App() {
                     you have visited.
                 </p>
             </header>
+
             <main>
                 <Places
                     title="I'd like to visit ..."
@@ -66,7 +67,7 @@ function App() {
                 <Places
                     title="Available Places"
                     places={AVAILABLE_PLACES}
-                    onSelectPlace={handleSelectPlace}
+                    onS electPlace={handleSelectPlace}
                 />
             </main>
         </>
