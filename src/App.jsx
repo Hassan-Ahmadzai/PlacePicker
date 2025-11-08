@@ -33,10 +33,10 @@ function App() {
     };
 
     function handleRemovePlace() {
-        setPickedPlaces((prevPickedPlaces) =>
-            prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
-        );
-        modal.current.close();
+        // setPickedPlaces((prevPickedPlaces) =>
+        //     prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
+        // );
+        // modal.current.close();
     };
 
     return (
