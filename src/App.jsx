@@ -14,17 +14,17 @@ function App() {
     const [availablePlaces, setAvailablePlaces] = useState([]);
     const [pickedPlaces, setPickedPlaces] = useState([]);
 
-    // useEffect(() => {
-    //     navigator.geolocation.getCurrentPosition((position) => {
-    //         const sortedPlaces = sortPlacesByDistance(
-    //             AVAILABLE_PLACES,
-    //             position.coords.latitude,
-    //             position.coords.longitude,
-    //         );
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const sortedPlaces = sortPlacesByDistance(
+                AVAILABLE_PLACES,
+                position.coords.latitude,
+                position.coords.longitude,
+            );
     
-    //         setAvailablePlaces(sortedPlaces);  
-    //     });
-    // }, []);
+            setAvailablePlaces(sortedPlaces);  
+        });
+    }, []);
 
 
     function handleStartRemovePlace(id) {
