@@ -26,7 +26,6 @@ function App() {
         });
     }, []);
 
-
     function handleStartRemovePlace(id) {
         modal.current.open();
         selectedPlace.current = id;
@@ -45,6 +44,8 @@ function App() {
             return [place, ...prevPickedPlaces];
         });
     };
+
+    const storedIds = JSON.parse(localStorage)
 
     function handleRemovePlace() {
         setPickedPlaces((prevPickedPlaces) =>
