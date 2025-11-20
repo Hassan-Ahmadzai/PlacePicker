@@ -35,7 +35,15 @@ function App() {
         modal.current.close();
     };
 
-
+    function handleSelectPlace(id) {
+        setPickedPlaces((prevPickedPlaces) => {
+            if (prevPickedPlaces.some((place) => place.id === id)) {
+                return prevPickedPlaces;
+            };
+            const place = AVAILABLE_PLACES.find((place) => place.id === id);
+            return [place, ...prevPickedPlaces];
+        });
+    };
 
     const storedIds = JSON.parse(localStorage)
 
