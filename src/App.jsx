@@ -45,8 +45,6 @@ function App() {
         });
     };
 
-    const storedIds = JSON.parse(localStorage)
-
     function handleRemovePlace() {
         setPickedPlaces((prevPickedPlaces) =>
             prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
